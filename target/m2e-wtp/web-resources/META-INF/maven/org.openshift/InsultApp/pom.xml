@@ -19,6 +19,14 @@
 			<artifactId>postgresql</artifactId>
 			<version>9.4-1200-jdbc41</version>
 		</dependency>
+		<dependency>
+		<groupId>javax</groupId> <artifactId>javaee-api</artifactId> <version>7.0</version> <scope>provided</scope>
+		</dependency>
+		<dependency>
+		  <groupId>io.swagger</groupId>
+		  <artifactId>swagger-jaxrs</artifactId>
+		  <version>1.5.0</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>

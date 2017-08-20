@@ -5,19 +5,20 @@ import java.util.Random;
 
 public class InsultGenerator {
 	
-	
-	
 	public String generateInsult() {
 		String vowels = "AEIOU";
 		String article = "an";
 		String theInsult = "";
 		String log = "";
 		try {
-			String databaseURL = "jdbc:postgresql://";
-			databaseURL += System.getenv("POSTGRESQL_SERVICE_HOST");
-			databaseURL += "/" + System.getenv("POSTGRESQL_DATABASE");
-			String username = System.getenv("POSTGRESQL_USER");
-			String password = System.getenv("PGPASSWORD");
+			
+			String host = System.getenv("POSTGRESQL_SERVICE_HOST") == null ? "localhost:5432" :  System.getenv("POSTGRESQL_SERVICE_HOST");
+			String databasaName = System.getenv("POSTGRESQL_DATABASE") == null ? "insult" : System.getenv("POSTGRESQL_DATABASE"); 
+			String username = System.getenv("POSTGRESQL_USER") == null ? "insult" : System.getenv("POSTGRESQL_USER");
+			String password = System.getenv("PGPASSWORD") == null ? "insult" : System.getenv("PGPASSWORD");
+					
+			String databaseURL = "jdbc:postgresql://" + host + "/" + databasaName;
+			
 			log = databaseURL + " : " + username + " : " + password;
 			Connection connection = DriverManager.getConnection(databaseURL, username, password);
 			if (connection != null) {
