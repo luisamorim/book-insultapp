@@ -13,7 +13,7 @@ public class InsultResource {
 	@Produces("application/json")
 	public HashMap<String, String> getInsult() {
 		HashMap<String, String> theInsult = new HashMap<String, String>();
-		theInsult.put("INSULT", new InsultGenerator().generateInsult());
+		theInsult.put("insult", new InsultGenerator().generateInsult());
 		return theInsult;
 
 	}
